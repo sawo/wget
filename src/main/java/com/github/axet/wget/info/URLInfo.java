@@ -8,6 +8,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import com.github.axet.wget.Direct;
+import com.github.axet.wget.ProxyManager;
 import com.github.axet.wget.RetryWrap;
 import com.github.axet.wget.info.ex.DownloadRetry;
 
@@ -156,7 +157,7 @@ public class URLInfo extends BrowserInfo {
     // if range failed - do plain download with no retrys's
     protected HttpURLConnection extractRange(URL source) throws IOException {
         URL url = source;
-        HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+        HttpURLConnection conn = ProxyManager.openConnection(url);
 
         conn.setConnectTimeout(Direct.CONNECT_TIMEOUT);
         conn.setReadTimeout(Direct.READ_TIMEOUT);
@@ -190,7 +191,7 @@ public class URLInfo extends BrowserInfo {
     // if range failed - do plain download with no retrys's
     protected HttpURLConnection extractNormal(URL source) throws IOException {
         URL url = source;
-        HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+        HttpURLConnection conn = ProxyManager.openConnection(url);
 
         conn.setConnectTimeout(Direct.CONNECT_TIMEOUT);
         conn.setReadTimeout(Direct.READ_TIMEOUT);

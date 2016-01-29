@@ -196,9 +196,8 @@ public class WGet {
 
             @Override
             public String download() throws IOException {
-                HttpURLConnection conn = null;
-
-                conn = (HttpURLConnection) info.getSource().openConnection();
+                URL url = info.getSource();
+                HttpURLConnection conn = ProxyManager.openConnection(url);
 
                 conn.setConnectTimeout(Direct.CONNECT_TIMEOUT);
                 conn.setReadTimeout(Direct.READ_TIMEOUT);

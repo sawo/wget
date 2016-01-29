@@ -14,6 +14,8 @@ Support single thread, single thread with download continue / resume, and multit
 
 4) Support for server RANGE feature (resume downloads / multipart logic)
 
+5) HTTP Proxy feature (In order to use proxy, the http.proxyHost and http.proxyPort system properties need to be set.)
+
 ## Exceptions
 
 Here is a five kind of exceptions.

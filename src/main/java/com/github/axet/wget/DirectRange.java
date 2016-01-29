@@ -27,7 +27,7 @@ public class DirectRange extends Direct {
         try {
             URL url = info.getSource();
 
-            HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+            HttpURLConnection conn = ProxyManager.openConnection(url);
 
             conn.setConnectTimeout(CONNECT_TIMEOUT);
             conn.setReadTimeout(READ_TIMEOUT);

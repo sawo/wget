@@ -67,8 +67,7 @@ public class DirectMultipart extends Direct {
             if (end - start + 1 == 0)
                 return;
 
-            HttpURLConnection conn;
-            conn = (HttpURLConnection) url.openConnection();
+            HttpURLConnection conn = ProxyManager.openConnection(url);
 
             conn.setConnectTimeout(CONNECT_TIMEOUT);
             conn.setReadTimeout(READ_TIMEOUT);
